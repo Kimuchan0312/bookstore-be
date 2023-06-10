@@ -63,9 +63,6 @@ router.get("/", (req, res, next) => {
   }
 });
 
-const bookRouter = require("./book.api.js");
-router.use("/books", bookRouter);
-
 router.post("/", (req, res, next) => {
   //post input validation
   try {
