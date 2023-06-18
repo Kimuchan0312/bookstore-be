@@ -54,10 +54,7 @@ router.get("/", (req, res, next) => {
 
     if (type) {
       filteredPokemons = filteredPokemons.filter((pokemon) => {
-        return (
-          pokemon.type1.toLowerCase() === type ||
-          pokemon.type2.toLowerCase() === type
-        );
+        return pokemon.types.some((t) => t.toLowerCase().includes(type));
       });
     }
 
@@ -92,9 +89,9 @@ router.get("/:id", (req, res) => {
 
   // Return the Pokémon data along with previous and next Pokémon
   res.status(200).json({
-    current: pokemonById,
-    previous: previousPokemon,
-    next: nextPokemon,
+    pokemon: pokemonById,
+    previousPokemon: previousPokemon,
+    nextPokemon: nextPokemon,
   });
 });
 

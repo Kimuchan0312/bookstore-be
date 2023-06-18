@@ -16,9 +16,8 @@ try {
         return {
           id: id,
           name: pokemon.Name,
-          type1: pokemon.Type1,
-          type2: pokemon.Type2,
-          image: `\/public/images/${pokemon.Name}.png`
+          types: [pokemon.Type1, pokemon.Type2].filter( type => !!type),
+          image: `/images/${pokemon.Name}.png`
         };
       });
 
