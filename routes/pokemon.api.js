@@ -38,7 +38,7 @@ router.get("/", (req, res, next) => {
 
     //Read data from db.json then parse to JSobject
     let db = fs.readFileSync(
-      "/Users/kimuchan/Documents/Projects/pokemon/backend/pokemons.json",
+      "./pokemons.json",
       "utf-8"
     );
     db = JSON.parse(db);
@@ -70,7 +70,7 @@ router.get("/", (req, res, next) => {
 router.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   let db = fs.readFileSync(
-    "/Users/kimuchan/Documents/Projects/pokemon/backend/pokemons.json",
+    "./pokemons.json",
     "utf-8"
   );
   db = JSON.parse(db);
@@ -98,7 +98,7 @@ router.get("/:id", (req, res) => {
 router.post("/addPokemon", (req, res, next) => {
   const { name, pokemonId, types, imageUrl } = req.body;
   let db = fs.readFileSync(
-    "/Users/kimuchan/Documents/Projects/pokemon/backend/pokemons.json",
+    "./pokemons.json",
     "utf-8"
   );
   db = JSON.parse(db);
@@ -147,7 +147,7 @@ router.post("/addPokemon", (req, res, next) => {
 
     // Write and save the updated database to pokemons.json
     fs.writeFileSync(
-      "/Users/kimuchan/Documents/Projects/pokemon/backend/pokemons.json",
+      "./pokemons.json",
       updatedDb
     );
     //post send response
