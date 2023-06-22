@@ -95,7 +95,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.post("/addPokemon", (req, res, next) => {
+router.post("/", (req, res, next) => {
   const { name, pokemonId, types, imageUrl } = req.body;
   let db = fs.readFileSync(
     "./pokemons.json",
